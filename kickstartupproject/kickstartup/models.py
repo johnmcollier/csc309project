@@ -10,7 +10,7 @@ class UserProfile(models.Model):
         return self.user.username
 
 class Industry(models.Model):
-    industry = models.CharField(max_length=30)
+    industry = models.CharField(max_length=50)
     
     def __unicode__(self):
         return self.industry
