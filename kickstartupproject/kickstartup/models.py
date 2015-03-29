@@ -30,5 +30,5 @@ class Keywords(models.Model):
     startUp = models.ForeignKey('StartUp')
     
     def __unicode__(self):
-        return self.keyword + " - " + self.startUp
+        return self.keyword + " - " + self.startUp.name
 # Create your models here.
