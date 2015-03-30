@@ -38,6 +38,6 @@ def register(request):
         user_form = UserForm()
         profile_form = UserProfileForm()
     
-    context_dict = {'registered': registered}
+    context_dict = {'registered': registered, 'user_form': user_form, 'profile_form': profile_form}
     return render(request, 'kickstartup/register.html', context_dict)
 # Create your views here.
