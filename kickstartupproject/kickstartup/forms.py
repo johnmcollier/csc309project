@@ -7,8 +7,12 @@ class UserForm(forms.ModelForm):
     
     class Meta:
         model = User
-        fields = {'username', 'email', 'password'}
+        fields = ('username', 'email', 'password')
 
 class UserProfileForm(forms.ModelForm):
     firstName = forms.CharField(max_length=30)
     lastName = forms.CharField(max_length=30)
+    
+    class Meta:
+        model = UserProfile
+        fields = ('firstName', 'lastName')
