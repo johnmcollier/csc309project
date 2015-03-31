@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 
@@ -40,4 +40,31 @@ def register(request):
     
     context_dict = {'registered': registered, 'user_form': user_form, 'profile_form': profile_form}
     return render(request, 'kickstartup/register.html', context_dict)
+
+def user_login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        
+        # Use django's authentication system to verify that the credentials are correct
+        user = authenticate(username=username, password=password)
+        
+        # Check that the user exists
+        if user:
+            if user.is_active:
+                login(request, user)
+                return HttpResponseRedirect('/kickstartup/startups/')
+            else:
+                return HttpResponse("Your account is disabled.")
+        else:
+            print "Invalid login details: {0}, {1}".format(username, password)
+            return HttpResponse("Invalid login details supplied.")
+    
+    else:
+        return render(request, 'kickstartup/login.html', {})
+        
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect('/communityfund/')
+    
 # Create your views here.
