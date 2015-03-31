@@ -1,6 +1,6 @@
 body {
-  padding-top: 20px;
   background-color: #eee;
+  padding-top: 20px;
 }
 
 .footer {
@@ -13,7 +13,7 @@ body {
 /* Main marketing message and sign up button */
 .jumbotron {
   text-align: center;
-  background-color: transparent;
+  background-color: #eee;
 }
 .jumbotron .btn {
   padding: 14px 24px;
@@ -84,6 +84,7 @@ body {
   .masthead,
   .marketing,
   .footer {
+	background-color: #eee;
     padding-right: 0;
     padding-left: 0;
   }
