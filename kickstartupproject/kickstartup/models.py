@@ -1,4 +1,5 @@
 from django.db import models
+from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 
 class UserProfile(models.Model):
@@ -21,7 +22,12 @@ class StartUp(models.Model):
     creator = models.ForeignKey('UserProfile')
     industry = models.ForeignKey('Industry')
     likes = models.IntegerField()
+    slug = models.SlugField()
     
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(StartUp, self).save(*args, **kwargs)
+        
     def __unicode__(self):
         return self.name
 

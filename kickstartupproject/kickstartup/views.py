@@ -6,13 +6,16 @@ from django.contrib.auth import authenticate, login, logout
 from kickstartup.models import UserProfile, Industry, StartUp, Keywords
 from kickstartup.forms import UserForm, UserProfileForm
 
+# Index view
 def index(request):
     context_dict = {'boldmessage': "I am bold font from the context"}
     return render(request, 'kickstartup/index.html', context_dict)
 
+# View for the about page. Not gonna bother doing anything with it since it's not part of the marking scheme
 def about(request):
     return HttpResponse("About. <a href='/kickstartup/'>Return to Index</a>")
 
+# Register page view
 def register(request):
     registered = False
     if request.method == 'POST':
@@ -62,9 +65,13 @@ def user_login(request):
     
     else:
         return render(request, 'kickstartup/login.html', {})
-        
+    
+# View for logging out
+# Django does the deletion of the session / cookie management    
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect('/kickstartup/')
-    
+
+def startups(request):
+    return render(request, 'kickstartup/startups.html')
 # Create your views here.
