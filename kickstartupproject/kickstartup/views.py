@@ -76,4 +76,15 @@ def startups(request):
     startups = StartUp.objects.all()
     context_dict = {'startups': startups}
     return render(request, 'kickstartup/startups.html', context_dict)
+
+def startup(request, startup_name_slug):
+    context_dict = {}
+    
+    try:
+        startup = StartUp.objects.get(slug=startup_name_slug)
+        context_dict['startup_name'] = startup.name
+        context_dict['startup_name_slug'] = startup_name_slug
+    except StartUp.DoesNotExist:
+        pass
+    return render(request, 'kickstartup/startup.html', context_dict)
 # Create your views here.
