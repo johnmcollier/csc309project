@@ -82,7 +82,7 @@ def startup(request, startup_name_slug):
     
     try:
         startup = StartUp.objects.get(slug=startup_name_slug)
-        context_dict['startup_name'] = startup.name
+        context_dict['startup'] = startup
         context_dict['startup_name_slug'] = startup_name_slug
     except StartUp.DoesNotExist:
         pass
