@@ -165,24 +165,23 @@
 				    Theatre
 				  </label>
 				</div>
-				{% for startup in startups %}
-				<div class="col-xs-6 col-sm-10 col-md-5 cfproj" style="border: 1px solid black; width: 100%"> 
-
-					<h2>Name: {{startup.name }}</h2>
-					<h3>Creator: {{ startup.creator }}</h3>
-					<p>{{ startup.description }}</p>
-					<p>{{ startup.duration }} Days</p>
-					<p>Industry: {{ startup.industry }}</p>
-					<p>Likes: {{ startup.likes }}</p>
-
-				</div>
-				<br />
-				{% endfor %}
 			</div>
 			
 
 	</div>
+	{% for startup in startups %}
+	<div class="col-xs-6 col-sm-10 col-md-5 cfproj" style="border: 1px solid black; width: 100%"> 
 
+		<h2>Name: {{startup.name }}</h2>
+		<h3>Creator: {{ startup.creator }}</h3>
+		<p>{{ startup.description }}</p>
+		<p>{{ startup.duration }} Days</p>
+		<p>Industry: {{ startup.industry }}</p>
+		<p>Likes: {{ startup.likes }}</p>
+
+	</div>
+	<br />
+	{% endfor %}
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<!-- Latest compiled and minified JavaScript -->
