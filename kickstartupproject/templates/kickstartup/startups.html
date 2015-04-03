@@ -33,16 +33,13 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
-	        <li><a href="/communityfund/home/">Find a Project</a></li>
-	        <li><a href="/communityfund/createproject/">Create a Project</a></li>
+	        <li><a href="/communityfund/home/">Find a Startup</a></li>
+	        <li><a href="/communityfund/createproject/">Create a new Startup</a></li>
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Profile<span class="caret"></span></a>
-	          <ul class="dropdown-menu" role="menu">
-	            <li><a href="#">Edit Profile</a></li>
-	            <li><a href="#">Notification Settings</a></li>
-	            <li><a href="#">Account Settings</a></li>
+	          <ul class="dropdown-menu" role="menu"> 
 	            <li class="divider"></li>
 	            <li><a href="#">Log out</a></li>
 	          </ul>
@@ -53,7 +50,7 @@
 	</nav>
     
     <div class="container-fluid">
-		    <div class="col-sm-2" style="border-right: 1px solid black">
+		    <div class="col-sm-2" style="border-right: 1px solid black; height:100%">
 		    	<div class="checkbox">
 				  <label>
 				    <input type="checkbox" value="">
@@ -169,15 +166,15 @@
 				  </label>
 				</div>
 			</div>
-			{% for project in projects %}
-			<div class="col-xs-6 col-sm-10 col-md-5 cfproj" style="border: 1px solid black"> 
+			{% for startup in startups %}
+			<div class="col-xs-6 col-sm-10 col-md-5 cfproj" style="border: 1px solid black; width: 100%"> 
 
-				<h2>{{project.projectName }}</h2>
-				<h3>User: {{ project.initiator }}</h3>
-				<img src="" alt="project-img">
-				<p>{{ project.description }}</p>
-				<p>{{ project.duration }} Days</p>
-				<p>Goal: ${{ project.goal }}</p>
+				<h2>Name: {{startup.name }}</h2>
+				<h3>Creator: {{ startup.creator }}</h3>
+				<p>{{ startup.description }}</p>
+				<p>{{ startup.duration }} Days</p>
+				<p>Industry: {{ startup.industry }}</p>
+				<p>Likes: ${{ startup.likes }}</p>
 				<p>${{ project.amountFunded }} funded</p>
 
 			</div>

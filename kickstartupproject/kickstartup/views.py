@@ -73,5 +73,7 @@ def user_logout(request):
     return HttpResponseRedirect('/kickstartup/')
 
 def startups(request):
-    return render(request, 'kickstartup/startups.html')
+    startups = StartUp.objects.all()
+    context_dict = {'startups': startups}
+    return render(request, 'kickstartup/startups.html', context_dict)
 # Create your views here.
