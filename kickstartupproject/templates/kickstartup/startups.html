@@ -171,10 +171,8 @@
 
 				<h2>Name: {{startup.name }}</h2>
 				<h3>Creator: {{ startup.creator }}</h3>
-				<p>{{ startup.description }}</p>
 				<p>Industry: {{ startup.industry }}</p>
-				<p>Likes: {{ startup.likes }}</p>
-
+				<a href="/startup/{{ startup.slug }}">More information...</a>
 			</div>
 			<br />
 			{% endfor %}

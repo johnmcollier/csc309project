@@ -25,22 +25,14 @@
 
 <div class="container">
 
-      <form class="form-signin" method="post" action="/communityfund/login/">
-		  {% csrf_token %}
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="username" class="sr-only">Email address</label>
-        <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
-        <label for="password" class="sr-only">Password</label>
-        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
-        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Sign in" />
-        <h4 style="padding-top:50px"> Don't have an account? </h4>
-        <a href="/communityfund/signup"> Sign up</a>
-      </form>
+	<div class="col-xs-6 col-sm-10 col-md-5 cfproj" style="border: 1px solid black"> 
+
+		<h2>Name: {{startup.name }}</h2>
+		<h3>Creator: {{ startup.creator }}</h3>
+		<h3>Industry: {{ startup.industry }}</h3>
+		<p>Description: {{ startup.industry }}</p>
+		<a href="/startup/{{ startup.slug }}">More information...</a>
+	</div>
 
     </div> <!-- /container -->
 
