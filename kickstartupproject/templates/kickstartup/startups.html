@@ -50,7 +50,7 @@
 	</nav>
     
     <div class="container-fluid">
-		    <div class="col-sm-2" style="border-right: 1px solid black; height:100%">
+		    <div class="col-sm-2" style="border-right: 1px solid black; height:100%; float:left">
 		    	<div class="checkbox">
 				  <label>
 				    <input type="checkbox" value="">
@@ -166,22 +166,21 @@
 				  </label>
 				</div>
 			</div>
-			
+			{% for startup in startups %}
+			<div class="col-xs-6 col-sm-10 col-md-5 cfproj" style="border: 1px solid black; width: 100%; overflow: hidden"> 
+
+				<h2>Name: {{startup.name }}</h2>
+				<h3>Creator: {{ startup.creator }}</h3>
+				<p>{{ startup.description }}</p>
+				<p>Industry: {{ startup.industry }}</p>
+				<p>Likes: {{ startup.likes }}</p>
+
+			</div>
+			<br />
+			{% endfor %}
 
 	</div>
-	{% for startup in startups %}
-	<div class="col-xs-6 col-sm-10 col-md-5 cfproj" style="border: 1px solid black; width: 100%"> 
-
-		<h2>Name: {{startup.name }}</h2>
-		<h3>Creator: {{ startup.creator }}</h3>
-		<p>{{ startup.description }}</p>
-		<p>{{ startup.duration }} Days</p>
-		<p>Industry: {{ startup.industry }}</p>
-		<p>Likes: {{ startup.likes }}</p>
-
-	</div>
-	<br />
-	{% endfor %}
+	
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<!-- Latest compiled and minified JavaScript -->
